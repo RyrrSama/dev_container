@@ -1,0 +1,19 @@
+services:
+  app:
+    image: rocky8_cuda-dev:latest # Use the Rocky 8 cuda dev image
+    environment:
+      - EASYBUILD_PREFIX=/apps/portable_application/rocky-8
+      - EASYBUILD_MODULES_TOOL=Lmod
+      - MODULEPATH=/apps/portable_application/rocky-8/modules
+
+      # CUDA Configuration
+      - CUDA_HOME=/usr/local/cuda
+      - CUDA_PATH=/usr/local/cuda
+      - CUDADIR=/usr/local/cuda
+      - PATH=/usr/local/cuda/bin:${PATH}
+      - LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}
+
+      # NVIDIA GPU Runtime Configuration
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - NVIDIA_REQUIRE_CUDA=cuda>=11.8

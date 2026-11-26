@@ -7,5 +7,6 @@ services:
       - "${HOST_TOOLS}:/tools" # Host tools mount
       - "${HOST_PROJECTS}:/projects" # Host projects mount
       - "${DEVELOPMENT}:/home/pipeline/development" # Host development mount
+
     working_dir: /home/pipeline # Default folder on container start
     command: ["/bin/bash"] # Interactive shell
